@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress JpaConfigDomFacetInspection -->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="glassfish1" transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <!---->
+        <!--<class>com.huotu.demo.glassfish1.entity1.*</class>-->
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://120.24.243.104:3307/glassfishdemo1?useUnicode=true&amp;characterEncoding=UTF8"/>
+            <property name="javax.persistence.jdbc.user" value="dbuser"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.password" value="ddbbuusseerr"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="eclipselink.logging.logger"
+                      value="org.eclipse.persistence.logging.CommonsLoggingLog"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.weaving" value="false"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

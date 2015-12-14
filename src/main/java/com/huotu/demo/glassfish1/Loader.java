@@ -5,11 +5,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor;
+import org.springframework.transaction.UnexpectedRollbackException;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.ServletContainerInitializer;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.transaction.UserTransaction;
 import java.util.Set;
 
 /**
@@ -19,8 +21,12 @@ public class Loader
         extends AbstractAnnotationConfigDispatcherServletInitializer implements ServletContainerInitializer
 {
 
+    public static UserTransaction watchIt = null;
+
     @Override
     protected String[] getServletMappings() {
+        UserTransaction userTransaction;
+        UnexpectedRollbackException unexpectedRollbackException;
         ServletContainerInitializer servletContainerInitializer;
         PersistenceAnnotationBeanPostProcessor persistenceAnnotationBeanPostProcessor;
         JndiObjectFactoryBean bean;

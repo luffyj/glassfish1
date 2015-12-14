@@ -9,22 +9,44 @@
   -->
 
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    <!--<tx:annotation-driven/>-->
 
     <bean id="entityManagerFactory"
-          class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <!--<property name="dataSource" ref="dataSource"/>-->
-        <property name="persistenceUnitName" value="default"/>
-        <!--<property name="persistenceXmlLocation" value="classpath:persistence.xml"/>-->
-        <!--<property name="packagesToScan">-->
-            <!--<list>-->
-                <!--<value>com.huotu.demo.glassfish1.entity1</value>-->
-                <!--<value>com.huotu.demo.glassfish1.entity2</value>-->
-            <!--</list>-->
-        <!--</property>-->
+        <!--<property name="persistenceUnitName" value="glassfish1"/>-->
+        <property name="persistenceXmlLocation" value="classpath:persistence.xml"/>
+        <property name="persistenceProvider">
+            <bean class="org.eclipse.persistence.jpa.PersistenceProvider"/>
+        </property>
+        <property name="packagesToScan">
+            <list>
+                <value>com.huotu.demo.glassfish1.entity1</value>
+                <value>com.huotu.demo.glassfish1.entity2</value>
+            </list>
+        </property>
         <property name="jpaDialect">
             <bean class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect"/>
+        </property>
+        <property name="jpaPropertyMap">
+            <map>
+                <entry key="eclipselink.weaving" value="false"/>
+                <entry key="javax.persistence.jdbc.url"
+                       value="jdbc:mysql://120.24.243.104:3307/glassfishdemo1?useUnicode=true&amp;characterEncoding=UTF8"/>
+                <entry key="javax.persistence.jdbc.user" value="dbuser"/>
+                <entry key="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+                <entry key="javax.persistence.jdbc.password" value="ddbbuusseerr"/>
+                <entry key="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+                <entry key="eclipselink.logging.logger"
+                       value="org.eclipse.persistence.logging.CommonsLoggingLog"/>
+                <entry key="eclipselink.logging.level.sql" value="FINE"/>
+            </map>
         </property>
     </bean>
 </beans>

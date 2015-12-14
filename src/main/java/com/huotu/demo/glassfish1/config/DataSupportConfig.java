@@ -1,26 +1,16 @@
 package com.huotu.demo.glassfish1.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.core.env.Environment;
-import org.springframework.orm.jpa.ExtendedEntityManagerCreator;
-import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
-import org.springframework.transaction.jta.JtaTransactionManager;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import java.lang.reflect.Method;
 
 /**
@@ -58,7 +48,6 @@ public class DataSupportConfig
 //        implements TransactionManagementConfigurer
 {
 
-    public static boolean JPA_SUPPORTED = false;
 //    @Autowired
 //    private EntityManagerFactory entityManagerFactory;
 //    @Autowired

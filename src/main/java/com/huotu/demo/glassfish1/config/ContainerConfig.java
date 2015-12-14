@@ -10,10 +10,8 @@ import javax.annotation.PostConstruct;
  * @author CJ
  */
 @Configuration
-//@Profile("container")
+@Profile("container")
 @ImportResource("classpath:container.xml")
 public class ContainerConfig {
-    public ContainerConfig(){
-        DataSupportConfig.JPA_SUPPORTED = true;
-    }
+
 }

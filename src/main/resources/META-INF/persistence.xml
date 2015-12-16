@@ -10,7 +10,7 @@
             <!--value="org.eclipse.persistence.logging.CommonsLoggingSessionLog"/>-->
             <property name="eclipselink.logging.level.sql" value="FINE"/>
             <property name="eclipselink.target-database" value="mysql" />
-            <property name="eclipselink.target-server" value="com.atomikos.eclipselink.platform.AtomikosPlatform"/>
+            <property name="eclipselink.target-server" value="com.huotu.atomikos.AtomikosPlatform"/>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="eclipselink.weaving" value="false"/>
 

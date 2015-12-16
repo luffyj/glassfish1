@@ -59,9 +59,20 @@ public class HelloControllerImpl implements HelloController {
     @ResponseBody
     @Transactional
     public String insert(){
-        User user = new User();
-        user.setName(LocalTime.now().toString());
-        userRepository.save(user);
-        return "inserted "+user.getName();
+        while (userRepository.count()<2){
+            User user = new User();
+            user.setName(LocalTime.now().toString());
+            userRepository.save(user);
+        }
+        // 取出2个 分别修改为当前时间
+        userRepository.findAll().forEach(
+                user -> {
+                    user.setName(LocalTime.now().toString());
+                }
+        );
+
+//        com.atomikos.icatch.standalone.UserTransactionServiceImp userTransactionServiceImp;
+
+        return "inserted ";
     }
 }

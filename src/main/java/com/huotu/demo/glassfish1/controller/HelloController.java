@@ -14,4 +14,9 @@ public interface HelloController {
     @ResponseBody
 //    @Transactional
     String hello();
+
+    @RequestMapping(value = {"/insert"})
+    @ResponseBody
+//    @Transactional
+    String insert();
 }

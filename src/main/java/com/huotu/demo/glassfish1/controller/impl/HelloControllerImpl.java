@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.transaction.RollbackException;
+import java.time.LocalTime;
 
 /**
  * @author CJ
@@ -34,14 +35,33 @@ public class HelloControllerImpl implements HelloController {
     @ResponseBody
     @Transactional
     public String hello() {
-//        com.sun.enterprise.
-//        JavaEETransaction javaEETransaction;
-        RollbackException rollbackException;
         log.info("user access /");
-        User user = new User();
-        userRepository.save(user);
+
         Customer customer = new Customer();
         customerRepository.save(customer);
-        return "hello";
+
+//        User user = new User();
+//        userRepository.save(user);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<ul>");
+        userRepository.findAll().forEach(user -> {
+            stringBuilder.append("<li>")
+            .append(user.getName())
+            .append("</li>");
+        });
+        stringBuilder.append("</ul>");
+
+        return stringBuilder.toString();
+    }
+
+    @Override
+    @RequestMapping(value = {"/insert"})
+    @ResponseBody
+    @Transactional
+    public String insert(){
+        User user = new User();
+        user.setName(LocalTime.now().toString());
+        userRepository.save(user);
+        return "inserted "+user.getName();
     }
 }

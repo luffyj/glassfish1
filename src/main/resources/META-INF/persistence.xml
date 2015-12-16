@@ -10,8 +10,13 @@
             <!--value="org.eclipse.persistence.logging.CommonsLoggingSessionLog"/>-->
             <property name="eclipselink.logging.level.sql" value="FINE"/>
             <property name="eclipselink.target-database" value="mysql" />
+            <property name="eclipselink.target-server" value="com.atomikos.eclipselink.platform.AtomikosPlatform"/>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="eclipselink.weaving" value="false"/>
+
+            <!--<property name="eclipselink.cache.coordination.protocol" value="jms"/>-->
+            <!--<property name="eclipselink.cache.coordination.jms.topic" value="jms/glassfishdemo1Jpa"/>-->
+            <!--<property name="eclipselink.cache.coordination.jms.factory" value="jms/glassfishdemo1JpaConnectionFactory"/>-->
         </properties>
     </persistence-unit>
 

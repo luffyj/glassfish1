@@ -14,9 +14,10 @@
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="eclipselink.weaving" value="false"/>
 
-            <!--<property name="eclipselink.cache.coordination.protocol" value="jms"/>-->
-            <!--<property name="eclipselink.cache.coordination.jms.topic" value="jms/glassfishdemo1Jpa"/>-->
-            <!--<property name="eclipselink.cache.coordination.jms.factory" value="jms/glassfishdemo1JpaConnectionFactory"/>-->
+            <property name="eclipselink.cache.coordination.protocol" value="jms"/>
+            <!--<property name="eclipselink.cache.coordination.jms.reuse-topic-publisher" value="true"/>-->
+            <property name="eclipselink.cache.coordination.jms.topic" value="jms/glassfishdemo1Jpa"/>
+            <property name="eclipselink.cache.coordination.jms.factory" value="jms/glassfishdemo1JpaConnectionFactory"/>
         </properties>
     </persistence-unit>
 

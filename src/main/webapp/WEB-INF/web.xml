@@ -3,7 +3,32 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <distributable />
+
     <persistence-unit-ref>
         <persistence-unit-ref-name>persistence/glassfish1</persistence-unit-ref-name>
     </persistence-unit-ref>
+
+    <!--<administered-object>-->
+        <!--<name></name>-->
+        <!--<class-name></class-name>-->
+        <!--<resource-adapter></resource-adapter>-->
+    <!--</administered-object>-->
+    <!--<connection-factory>-->
+        <!--<name>jms/glassfishdemo1JpaConnectionFactory</name>-->
+        <!--<interface-name>javax.jms.TopicConnectionFactory</interface-name>-->
+        <!--<resource-adapter></resource-adapter>-->
+    <!--</connection-factory>-->
+    <!--<resource-ref>-->
+        <!--<res-ref-name></res-ref-name>-->
+    <!--</resource-ref>-->
+    <!---->
+    <!--<jms-connection-factory>-->
+        <!--<name>jms/glassfishdemo1JpaConnectionFactory</name>-->
+        <!---->
+    <!--</jms-connection-factory>-->
+    <!--<jms-destination>-->
+        <!--<name>jms/glassfishdemo1Jpa</name>-->
+        <!--<interface-name>javax.jms.Topic</interface-name>-->
+    <!--</jms-destination>-->
 </web-app>
